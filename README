@@ -1,0 +1,5 @@
+when vim opens execute :so %
+cd ~/.vim/ruby/command-t
+sudo apt-get install build-essential libopenssl-ruby ruby1.8-dev
+ruby extconf.rb
+make
