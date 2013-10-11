@@ -18,6 +18,8 @@ nnoremap ; :
 nnoremap <space> <Nop>
 let mapleader = " " "This makes space to be your map leader
 "Instead of typing :/<command> you type ; <command>
+"Remove trailing whitespace when saving
+autocmd BufWritePre * :%s/\s\+$//e
 
 "Searching
 set ignorecase
