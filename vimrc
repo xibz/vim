@@ -38,6 +38,13 @@ let g:ctrlp_map='\'
 map T :tabnew<space>
 map Q :tabclose<CR>
 map ` :NERDTreeToggle<CR>
-map <leader>[ gT
-map <leader>] gt
+map [ gT
+map ] gt
 map 0 ^
+
+"Column limit                                                                   
+"Must go at the end due to highlight will be overwritten                        
+"if colorscheme is used                                                         
+set colorcolumn=+1                                                              
+highlight ColorColumn ctermbg=red guibg=lightgrey                               
+set colorcolumn=80 
