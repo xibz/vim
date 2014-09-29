@@ -1,28 +1,34 @@
-echo "Copying vimrc"
+BLUE='\e[0;34m'
+RED='\e[1;31m'
+GREEN='\e[1;32m'
+NC='\e[0m'
+
+echo -e "${GREEN}Copying vimrc${NC}"
 sudo cp vimrc ~/.vimrc
-echo "Copying tmux"
+echo -e "${GREEN}Copying tmux${NC}"
 sudo cp .tmux.conf ~/
-echo "Copying git config"
+echo -e "${GREEN}Copying git config${NC}"
 sudo cp .gitconfig ~/
-echo "Installing tmux"
+echo -e "${GREEN}Installing tmux${NC}"
 sudo apt-get install tmux
-echo "Installing ctags"
+echo -e "${GREEN}Installing ctags${NC}"
 sudo apt-get install ctags
-echo "Copying nerd tree"
+echo -e "${GREEN}Copying nerd tree${NC}"
 sudo cp -r ./nerdTree/* ~/.vim
-echo "Copying ctrlp"
+echo -e "${GREEN}Copying ctrlp${NC}"
 sudo cp -r ./ctrlp/* ~/.vim
-echo "Copying ftdetect"
+echo -e "${GREEN}Copying ftdetect${NC}"
 sudo cp -rf ./ftdetect/ ~/.vim
-echo "Copying syntax"
+echo -e "${GREEN}Copying syntax${NC}"
 sudo cp -rf ./syntax/ ~/.vim
 mkdir bundle
 cd ./bundle
-echo "Cloning Vundle"
+echo -e "${GREEN}Cloning Vundle${NC}"
 git clone https://github.com/gmarik/Vundle.vim.git
-echo "Cloning easy motion"
+echo -e "${GREEN}Cloning easy motion${NC}"
 git clone https://github.com/Lokaltog/vim-easymotion.git
-echo "Cloning vim go"
+echo -e "${GREEN}Cloning vim go${NC}"
 git clone https://github.com/fatih/vim-go.git
 cd ..
 sudo cp -rf ./bundle/ ~/.vim
+echo -e "${RED}Finished${NC}"
