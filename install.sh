@@ -16,6 +16,7 @@ echo "Copying ftdetect"
 sudo cp -rf ./ftdetect/ ~/.vim
 echo "Copying syntax"
 sudo cp -rf ./syntax/ ~/.vim
+mkdir bundle
 cd ./bundle
 echo "Cloning Vundle"
 git clone https://github.com/gmarik/Vundle.vim.git
