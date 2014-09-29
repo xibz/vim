@@ -4,8 +4,7 @@
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" Commented until fixed
-"Plugin 'faith/vim-go'
+Plugin 'faith/vim-go'
 Plugin 'Lokaltog/vim-easymotion'
 call vundle#end()
 
