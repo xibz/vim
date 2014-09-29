@@ -1,12 +1,17 @@
-BLUE='\e[0;34m'
+BLUE='\e[1;34m'
+CYAN='\e[1;36m'
 RED='\e[1;31m'
 GREEN='\e[1;32m'
 NC='\e[0m'
 
 echo -e "${GREEN}Copying vimrc${NC}"
 sudo cp vimrc ~/.vimrc
-echo -e "${GREEN}Copying tmux${NC}"
+echo -e "${GREEN}Copying tmux.conf${NC}"
 sudo cp .tmux.conf ~/
+echo -e "${GREEN}Copying Xresources${NC}"
+sudo cp Xresources ~/.Xresources
+echo -e "${CYAN}Merging Xresources${NC}"
+xrdb -merge ~/.Xresources
 echo -e "${GREEN}Copying git config${NC}"
 sudo cp .gitconfig ~/
 echo -e "${GREEN}Installing tmux${NC}"
