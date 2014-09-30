@@ -47,7 +47,7 @@ map 0 ^
 "if colorscheme is used
 set colorcolumn=+1
 highlight ColorColumn ctermbg=red guibg=lightgrey
-set colorcolumn=80
+set colorcolumn=120
 
 "Plugins
 set rtp+=~/.vim/bundle/Vundle.vim
