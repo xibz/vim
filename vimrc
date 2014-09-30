@@ -22,10 +22,11 @@ set smartindent
 set noexpandtab
 set softtabstop=2
 set shiftwidth=2
+set tabstop=2
 set number
 set background=dark
 set pastetoggle=<F2> "Key to change in and out of paste mode
-set backspace=2
+"set backspace=2
 syntax enable
 
 " Command configs
