@@ -1,3 +1,17 @@
+""""""""""""""""""""""""""""""""""""""""""
+"		Plugins			 "
+""""""""""""""""""""""""""""""""""""""""""
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'faith/vim-go'
+call vundle#end()
+
+filetype plugin on
+filetype plugin indent on
+filetype indent on
+""""""""""""""""""""""""""""""""""""""""""
+
 set nohidden
 set nowrap
 "set copyindent
@@ -12,8 +26,6 @@ set background=dark
 set pastetoggle=<F2> "Key to change in and out of paste mode
 set backspace=2
 syntax enable
-filetype plugin on
-filetype indent on
 
 "Command configs
 nnoremap ; :
@@ -41,6 +53,7 @@ map ` :NERDTreeToggle<CR>
 map [ gT
 map ] gt
 map 0 ^
+nmap s <Plug>(easymotion-s)
 
 "Column limit
 "Must go at the end due to highlight will be overwritten
@@ -49,7 +62,3 @@ set colorcolumn=+1
 highlight ColorColumn ctermbg=red guibg=lightgrey
 set colorcolumn=120
 
-"Plugins
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'faith/vim-go'
