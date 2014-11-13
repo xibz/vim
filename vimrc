@@ -63,3 +63,7 @@ set colorcolumn=+1
 highlight ColorColumn ctermbg=red guibg=lightgrey
 set colorcolumn=120
 
+" Tab colors                                                                                                            
+hi TabLineFill ctermfg=DarkGray ctermbg=LightGray                                                                       
+hi TabLine ctermfg=DarkBlue ctermbg=LightGray                                                                           
+hi TabLineSel ctermfg=White ctermbg=DarkGray 
