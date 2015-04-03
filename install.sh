@@ -6,6 +6,10 @@ NC='\e[0m'
 
 echo -e "${GREEN}Copying vimrc${NC}"
 sudo cp vimrc ~/.vimrc
+echo -e "${GREEN}Copying xinitrc${NC}"
+sudo cp xinitrc ~/.xinitrc
+echo -e "${GREEN}Copying Xmodmap${NC}"
+sudo cp Xmodmap ~/.Xmodmap
 echo -e "${GREEN}Copying tmux.conf${NC}"
 sudo cp .tmux.conf ~/
 echo -e "${GREEN}Copying Xresources${NC}"
