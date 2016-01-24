@@ -39,5 +39,14 @@ git clone https://github.com/Lokaltog/vim-easymotion.git
 echo -e "${GREEN}Cloning vim go${NC}"
 git clone https://github.com/fatih/vim-go.git
 cd ..
+echo -e "${GREEN}Moving directories into .vim${NC}"
 sudo cp -rf ./bundle/ ~/.vim
+echo -e "${GREEN}Exporting variables to .bash_profile${NC}"
+echo "export PATH=$PATH:/$HOME/Go/bin" >> $HOME/.bash_profile 
+mkdir $HOME/Go
+mkdir $HOME/Go/bin
+cd $HOME/Go
+export GOPATH=$HOME/Go
+go get -u github.com/golang/lint/golint
+
 echo -e "${RED}Finished${NC}"

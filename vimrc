@@ -67,3 +67,7 @@ set colorcolumn=120
 hi TabLineFill ctermfg=DarkGray ctermbg=LightGray                                                                       
 hi TabLine ctermfg=DarkBlue ctermbg=LightGray                                                                           
 hi TabLineSel ctermfg=White ctermbg=DarkGray 
+
+" golint
+set rtp+=$HOME/Go/src/github.com/golang/lint/misc/vim
+autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
