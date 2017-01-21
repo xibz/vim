@@ -4,7 +4,7 @@
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'faith/vim-go'
+Plugin 'fatih/vim-go'
 Plugin 'Lokaltog/vim-easymotion'
 call vundle#end()
 
@@ -44,6 +44,10 @@ set incsearch
 set nobackup
 set noswapfile
 
+" Toggle tabs
+nnoremap H gT
+nnoremap L gt
+
 " Return removes highlighting from searches
 nnoremap <CR> :noh<CR><CR>
 
@@ -51,10 +55,9 @@ let g:ctrlp_map='\'
 map T :tabnew<space>
 map Q :tabclose<CR>
 map ` :NERDTreeToggle<CR>
-map [ gT
-map ] gt
 map 0 ^
 nmap s <Plug>(easymotion-s)
+map " :split<CR>:GoDef<CR>
 
 " Column limit
 " Must go at the end due to highlight will be overwritten
@@ -67,7 +70,12 @@ set colorcolumn=120
 hi TabLineFill ctermfg=DarkGray ctermbg=LightGray                                                                       
 hi TabLine ctermfg=DarkBlue ctermbg=LightGray                                                                           
 hi TabLineSel ctermfg=White ctermbg=DarkGray 
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_build_constraints = 1
 
-" golint
-set rtp+=$HOME/Go/src/github.com/golang/lint/misc/vim
-autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
+execute pathogen#infect()
+call pathogen#helptags()
