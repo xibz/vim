@@ -57,7 +57,7 @@ map Q :tabclose<CR>
 map ` :NERDTreeToggle<CR>
 map 0 ^
 nmap s <Plug>(easymotion-s)
-map " :split<CR>:GoDef<CR>
+au FileType go map " <Plug>(go-def-tab)
 
 " Column limit
 " Must go at the end due to highlight will be overwritten
