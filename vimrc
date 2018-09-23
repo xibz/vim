@@ -55,9 +55,11 @@ let g:ctrlp_map='\'
 map T :tabnew<space>
 map Q :tabclose<CR>
 map ` :NERDTreeToggle<CR>
+map ' :%!python -m json.tool<CR>
 map 0 ^
 nmap s <Plug>(easymotion-s)
-au FileType go map " <Plug>(go-def-tab)
+" map " :split<CR>:GoDef<CR>
+au FileType go map Q <Plug>(go-def-tab)
 
 " Column limit
 " Must go at the end due to highlight will be overwritten
@@ -70,7 +72,8 @@ set colorcolumn=120
 hi TabLineFill ctermfg=DarkGray ctermbg=LightGray                                                                       
 hi TabLine ctermfg=DarkBlue ctermbg=LightGray                                                                           
 hi TabLineSel ctermfg=White ctermbg=DarkGray 
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
+let g:syntastic_aggregate_errors = 1
 let g:go_metalinter_autosave = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1

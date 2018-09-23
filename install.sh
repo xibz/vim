@@ -28,6 +28,8 @@ echo -e "${GREEN}Copying ctrlp${NC}"
 sudo cp -r ./ctrlp/* ~/.vim
 echo -e "${GREEN}Copying ftdetect${NC}"
 sudo cp -rf ./ftdetect/ ~/.vim
+echo -e "${GREEN}Copying ftplugin${NC}"
+sudo cp -rf ./ftplugin/ ~/.vim
 echo -e "${GREEN}Copying syntax${NC}"
 sudo cp -rf ./syntax/ ~/.vim
 mkdir bundle
