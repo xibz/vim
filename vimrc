@@ -48,6 +48,10 @@ set noswapfile
 nnoremap H gT
 nnoremap L gt
 
+" Navigation
+nmap - <C-b>
+nmap = <C-d>
+
 " Return removes highlighting from searches
 nnoremap <CR> :noh<CR><CR>
 
