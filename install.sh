@@ -32,17 +32,13 @@ echo -e "${GREEN}Copying ftplugin${NC}"
 sudo cp -rf ./ftplugin/ ~/.vim
 echo -e "${GREEN}Copying syntax${NC}"
 sudo cp -rf ./syntax/ ~/.vim
-mkdir bundle
-cd ./bundle
-echo -e "${GREEN}Cloning Vundle${NC}"
-git clone https://github.com/gmarik/Vundle.vim.git
-echo -e "${GREEN}Cloning easy motion${NC}"
-git clone https://github.com/Lokaltog/vim-easymotion.git
-echo -e "${GREEN}Cloning vim go${NC}"
-git clone https://github.com/fatih/vim-go.git
-cd ..
-echo -e "${GREEN}Moving directories into .vim${NC}"
-sudo cp -rf ./bundle/ ~/.vim
+mkdir -p ~/.vim/bundle
+echo -e "${GREEN}Installing Vundle${NC}"
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+echo -e "${GREEN}Installing easy motion${NC}"
+git clone https://github.com/Lokaltog/vim-easymotion.git ~/.vim/bundle/vim-easymotion
+echo -e "${GREEN}Installing vim go${NC}"
+git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
 echo -e "${GREEN}Exporting variables to .bash_profile${NC}"
 echo "export PATH=$PATH:/$HOME/Go/bin" >> $HOME/.bash_profile 
 mkdir $HOME/Go

@@ -4,6 +4,7 @@
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'fatih/vim-go'
 Plugin 'Lokaltog/vim-easymotion'
 call vundle#end()
@@ -48,7 +49,7 @@ set noswapfile
 nnoremap H gT
 nnoremap L gt
 
-" Navigation
+" Navigation of a single pane
 nmap - <C-b>
 nmap = <C-d>
 
@@ -59,7 +60,13 @@ let g:ctrlp_map='\'
 map T :tabnew<space>
 map Q :tabclose<CR>
 map ` :NERDTreeToggle<CR>
-map ' :%!python -m json.tool<CR>
+
+" Panes navigation
+map + <C-W>k
+map " <C-W>j
+map { <C-W>h
+map } <C-W>l
+
 map 0 ^
 nmap s <Plug>(easymotion-s)
 " map " :split<CR>:GoDef<CR>
