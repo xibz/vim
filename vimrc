@@ -5,7 +5,6 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'fatih/vim-go'
 Plugin 'Lokaltog/vim-easymotion'
 call vundle#end()
 
@@ -16,18 +15,11 @@ filetype indent on
 
 set nohidden
 set nowrap
-"set copyindent
 set autoindent
-"set cindent
 set smartindent
-set noexpandtab
-set softtabstop=2
-set shiftwidth=2
-set tabstop=2
 set number
 set background=dark
 set pastetoggle=<F2> "Key to change in and out of paste mode
-"set backspace=2
 syntax enable
 
 " Command configs
@@ -69,8 +61,6 @@ map } <C-W>l
 
 map 0 ^
 nmap s <Plug>(easymotion-s)
-" map " :split<CR>:GoDef<CR>
-au FileType go map Q <Plug>(go-def-tab)
 
 " Column limit
 " Must go at the end due to highlight will be overwritten
@@ -83,13 +73,6 @@ set colorcolumn=120
 hi TabLineFill ctermfg=DarkGray ctermbg=LightGray                                                                       
 hi TabLine ctermfg=DarkBlue ctermbg=LightGray                                                                           
 hi TabLineSel ctermfg=White ctermbg=DarkGray 
-let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
-let g:syntastic_aggregate_errors = 1
-let g:go_metalinter_autosave = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_build_constraints = 1
 
 execute pathogen#infect()
 call pathogen#helptags()
