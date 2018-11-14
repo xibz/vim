@@ -46,18 +46,18 @@ sudo cp -r ./tagbar/* ~/.vim
 # Syntax
 ################################
 echo -e "${GREEN}Copying ftdetect${NC}"
-sudo cp -rf ./ftdetect/ ~/.vim
+sudo cp -rf ./ftdetect ~/.vim
 echo -e "${GREEN}Copying ftplugin${NC}"
-sudo cp -rf ./ftplugin/ ~/.vim
+sudo cp -rf ./ftplugin ~/.vim
 echo -e "${GREEN}Copying syntax${NC}"
-sudo cp -rf ./syntax/ ~/.vim
+sudo cp -rf ./syntax ~/.vim
 
 ################################
 # Bundles
 ################################
 # delete the current bundle folder in
 # the vim directory
-if [ -d ~/.vim/bundle]; then
+if [ -d ~/.vim/bundle ]; then
 rm -rf ~/.vim/bundle
 fi
 
