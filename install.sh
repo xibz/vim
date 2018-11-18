@@ -71,7 +71,7 @@ echo -e "${GREEN}Installing vim go${NC}"
 git clone https://github.com/fatih/vim-go.git
 
 echo -e "${GREEN}Symlinking bundle folder${NC}"
-ln -s ~/vim/bundle ~/.vim/bundle
+sudo ln -s `pwd` ~/.vim/bundle
 
 echo -e "${GREEN}Exporting variables to .bash_profile${NC}"
 echo "export PATH=$PATH:/$HOME/Go/bin" >> $HOME/.bash_profile 

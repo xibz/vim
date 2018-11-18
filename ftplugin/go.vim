@@ -1,5 +1,7 @@
 call vundle#begin()
 Plugin 'fatih/vim-go'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Lokaltog/vim-easymotion'
 call vundle#end()
 
 " Use actual tabs
