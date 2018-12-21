@@ -58,7 +58,7 @@ sudo cp -rf ./syntax ~/.vim
 # delete the current bundle folder in
 # the vim directory
 if [ -d ~/.vim/bundle ]; then
-rm -rf ~/.vim/bundle
+sudo rm -rf ~/.vim/bundle
 fi
 
 mkdir bundle
