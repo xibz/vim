@@ -3,3 +3,12 @@ cd ~/.vim/ruby/command-t
 sudo apt-get install build-essential libopenssl-ruby ruby1.8-dev
 ruby extconf.rb
 make
+
+## VIM terminal
+echo "export VISUAL=vim" >> ~/.bashrc
+
+open `/etc/inputrc` and add
+```
+set editing-mode vi
+set keymap vi-command
+```
