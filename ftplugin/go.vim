@@ -11,7 +11,9 @@ set shiftwidth=2
 set tabstop=2
 
 " Go specific plugins
-au FileType go map Q <Plug>(go-def-tab)
+" au FileType go map Q <Plug>(go-def-tab)
+map t <C-]>
+map T <C-t>
 
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 let g:syntastic_aggregate_errors = 1
