@@ -69,6 +69,8 @@ echo -e "${GREEN}Installing easy motion${NC}"
 git clone https://github.com/Lokaltog/vim-easymotion.git
 echo -e "${GREEN}Installing vim go${NC}"
 git clone https://github.com/fatih/vim-go.git
+echo -e "${GREEN}Installing syntastic${NC}"
+git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
 
 echo -e "${GREEN}Symlinking bundle folder${NC}"
 sudo ln -s `pwd` ~/.vim/bundle
