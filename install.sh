@@ -76,10 +76,10 @@ echo -e "${GREEN}Symlinking bundle folder${NC}"
 sudo ln -s `pwd` ~/.vim/bundle
 
 echo -e "${GREEN}Exporting variables to .bash_profile${NC}"
-echo "export PATH=$PATH:/$HOME/Go/bin" >> $HOME/.bash_profile 
-mkdir $HOME/Go
-mkdir $HOME/Go/bin
-cd $HOME/Go
+echo "export PATH=$PATH:/$HOME/go/bin" >> $HOME/.bash_profile 
+mkdir $HOME/go
+mkdir $HOME/go/bin
+cd $HOME/go
 export GOPATH=$HOME/Go
 go get -u github.com/golang/lint/golint
 
