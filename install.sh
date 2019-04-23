@@ -6,6 +6,8 @@ NC='\e[0m'
 
 echo -e "${GREEN}Copying vimrc${NC}"
 sudo cp vimrc ~/.vimrc
+echo -e "${GREEN}Copying inputrc${NC}"
+sudo cp inputrc ~/.inputrc
 echo -e "${GREEN}Copying xinitrc${NC}"
 sudo cp xinitrc ~/.xinitrc
 echo -e "${GREEN}Copying Xmodmap${NC}"
@@ -79,8 +81,6 @@ echo -e "${GREEN}Exporting variables to .bash_profile${NC}"
 echo "export PATH=$PATH:/$HOME/go/bin" >> $HOME/.bash_profile 
 mkdir $HOME/go
 mkdir $HOME/go/bin
-cd $HOME/go
-export GOPATH=$HOME/Go
 go get -u github.com/golang/lint/golint
 
 echo -e "${RED}Finished${NC}"
