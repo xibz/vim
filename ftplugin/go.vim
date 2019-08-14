@@ -6,6 +6,7 @@ call vundle#end()
 
 " Install syntastic
 execute pathogen#infect()
+setlocal omnifunc=go#complete#Complete
 
 " Use actual tabs
 set noexpandtab
@@ -17,6 +18,11 @@ set tabstop=2
 " au FileType go map Q <Plug>(go-def-tab)
 map t <C-]>
 map T <C-t>
+
+" remap ctrl-x to automatically open autocomplete window and option
+inoremap <C-x> <C-X><C-O>
+" map ctrl-o to toggle between autocomplete options
+inoremap <C-o> <C-O>
 
 let g:go_metalinter_autosave = 1
 let g:go_highlight_functions = 1
