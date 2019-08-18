@@ -73,6 +73,8 @@ echo -e "${GREEN}Installing vim go${NC}"
 git clone https://github.com/fatih/vim-go.git
 echo -e "${GREEN}Installing syntastic${NC}"
 git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
+echo -e "${GREEN}Installing git-gutter${NC}"
+git clone git://github.com/airblade/vim-gitgutter.git
 
 echo -e "${GREEN}Symlinking bundle folder${NC}"
 sudo ln -s `pwd` ~/.vim/bundle
