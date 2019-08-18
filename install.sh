@@ -63,7 +63,7 @@ if [ -d ~/.vim/bundle ]; then
 sudo rm -rf ~/.vim/bundle
 fi
 
-mkdir bundle
+mkdir -p bundle
 cd bundle
 echo -e "${GREEN}Installing Vundle${NC}"
 git clone https://github.com/VundleVim/Vundle.vim.git
@@ -81,8 +81,8 @@ sudo ln -s `pwd` ~/.vim/bundle
 
 echo -e "${GREEN}Exporting variables to .bash_profile${NC}"
 echo "export PATH=$PATH:/$HOME/go/bin" >> $HOME/.bash_profile 
-mkdir $HOME/go
-mkdir $HOME/go/bin
+mkdir -p $HOME/go
+mkdir -p $HOME/go/bin
 go get -u github.com/golang/lint/golint
 
 echo -e "${RED}Finished${NC}"
