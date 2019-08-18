@@ -62,6 +62,9 @@ map } <C-W>l
 map 0 ^
 nmap s <Plug>(easymotion-s)
 
+" git-gutter bindings
+map _ :GitGutterToggle<CR>
+
 " Column limit
 " Must go at the end due to highlight will be overwritten
 " if colorscheme is used
