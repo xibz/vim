@@ -79,3 +79,6 @@ hi TabLineSel ctermfg=White ctermbg=DarkGray
 
 execute pathogen#infect()
 call pathogen#helptags()
+
+let g:gitgutter_highlight_lines = 1
+let g:gitgutter_highlight_linenrs = 1
