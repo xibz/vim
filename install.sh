@@ -44,6 +44,10 @@ echo -e "${GREEN}Copying tagbar${NC}"
 git clone git@github.com:majutsushi/tagbar.git tagbar
 sudo cp -r ./tagbar/* ~/.vim
 
+echo -e "${GREEN}Setting git diff and merge tool"
+git config --global diff.tool vimdiff
+git config --global merge.tool vimdiff
+
 ################################
 # Syntax
 ################################
