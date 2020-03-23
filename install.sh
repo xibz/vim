@@ -4,6 +4,18 @@ RED='\e[1;31m'
 GREEN='\e[1;32m'
 NC='\e[0m'
 
+
+echo -e "${GREEN}Updating package cache${NC}"
+sudo apt-get update
+echo -e "${GREEN}installing pip for autocomplete plugin${NC}"
+sudo apt-get install -y python3-pip
+echo -e "${RED}Uninstalling msgpack-python${NC}"
+pip3 uninstall msgpack-python
+echo -e "${GREEN}Installing msgpack${NC}"
+pip3 install -U msgpack
+
+pip3 install --user pynvim
+
 echo -e "${GREEN}Copying vimrc${NC}"
 sudo cp vimrc ~/.vimrc
 echo -e "${GREEN}Copying inputrc${NC}"

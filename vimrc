@@ -6,6 +6,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
 call vundle#end()
 
 filetype plugin on
@@ -82,3 +85,8 @@ call pathogen#helptags()
 
 let g:gitgutter_highlight_lines = 1
 let g:gitgutter_highlight_linenrs = 1
+
+let g:deoplete#enable_at_startup = 1
+" enable tab completion for deoplete
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
