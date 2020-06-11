@@ -87,6 +87,7 @@ let g:gitgutter_highlight_lines = 1
 let g:gitgutter_highlight_linenrs = 1
 
 let g:deoplete#enable_at_startup = 1
+let g:deoplete_disable_auto_complete=1
 " enable tab completion for deoplete
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
