@@ -9,9 +9,12 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" : "\<TAB>"
+
+let g:OmniSharp_translate_cygwin_wsl = 1
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_timeout = 5
-let g:OmniSharp_server_use_mono = 1
 let g:OmniSharp_highlight_types = 3
 let g:OmniSharp_highlight_groups = {
 	\ 'csUserIdentifier': [
