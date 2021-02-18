@@ -2,11 +2,13 @@ call vundle#begin()
 Plugin 'fatih/vim-go'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'ycm-core/YouCompleteMe'
 call vundle#end()
 
 " Install syntastic
 execute pathogen#infect()
-setlocal omnifunc=go#complete#Complete
+setlocal completefunc=youcompleteme#Complete
+setlocal completeopt=preview,menuone
 
 " Use actual tabs
 set noexpandtab

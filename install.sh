@@ -1,3 +1,4 @@
+ROOT=`pwd`
 BLUE='\e[1;34m'
 CYAN='\e[1;36m'
 RED='\e[1;31m'
@@ -7,6 +8,8 @@ NC='\e[0m'
 
 echo -e "${GREEN}Updating package cache${NC}"
 sudo apt-get update
+echo -e "${GREEN}Updating dependencies${NC}"
+sudo apt-get build-essential cmake vim-nox python3-dev mono-complete nodejs default-jdk npm
 echo -e "${GREEN}installing pip for autocomplete plugin${NC}"
 sudo apt-get install -y python3-pip
 echo -e "${RED}Uninstalling msgpack-python${NC}"
@@ -100,5 +103,11 @@ echo "export PATH=$PATH:/$HOME/go/bin" >> $HOME/.bash_profile
 mkdir -p $HOME/go
 mkdir -p $HOME/go/bin
 go get -u github.com/golang/lint/golint
+
+# install YouCompleteMe
+echo -e "${GREEN}Compiling YouCompleteMe Server${NC}"
+cd ~/.vim/bundle/YouCompleteMe
+python3 install.py --all --go-completer
+cd $ROOT
 
 echo -e "${RED}Finished${NC}"
