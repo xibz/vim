@@ -9,7 +9,7 @@ NC='\e[0m'
 echo -e "${GREEN}Updating package cache${NC}"
 sudo apt-get update
 echo -e "${GREEN}Updating dependencies${NC}"
-sudo apt-get build-essential cmake vim-nox python3-dev mono-complete nodejs default-jdk npm
+sudo apt-get install build-essential cmake vim-nox python3-dev mono-complete nodejs default-jdk npm
 echo -e "${GREEN}installing pip for autocomplete plugin${NC}"
 sudo apt-get install -y python3-pip
 echo -e "${RED}Uninstalling msgpack-python${NC}"
@@ -103,6 +103,12 @@ echo "export PATH=$PATH:/$HOME/go/bin" >> $HOME/.bash_profile
 mkdir -p $HOME/go
 mkdir -p $HOME/go/bin
 go get -u github.com/golang/lint/golint
+
+# opening vim
+echo -e "${GREEN}Run PluginInstall and GoInstallBinaries${NC}"
+echo -e "${GREEN}press enter to start vim${NC}"
+read -r b
+vim test.go
 
 # install YouCompleteMe
 echo -e "${GREEN}Compiling YouCompleteMe Server${NC}"
