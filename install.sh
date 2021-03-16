@@ -21,6 +21,8 @@ pip3 install --user pynvim
 
 echo -e "${GREEN}Copying vimrc${NC}"
 sudo cp vimrc ~/.vimrc
+echo -e "${GREEN}Copying tmux.conf${NC}"
+sudo cp tmux.conf ~/.tmux.conf
 echo -e "${GREEN}Copying inputrc${NC}"
 sudo cp inputrc ~/.inputrc
 echo -e "${GREEN}Copying xinitrc${NC}"
