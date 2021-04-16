@@ -86,6 +86,10 @@ call pathogen#helptags()
 let g:gitgutter_highlight_lines = 1
 let g:gitgutter_highlight_linenrs = 1
 
+" makes ctrlp significantly faster by ignoring files in .git and files in
+" .gitignore
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
 " enable tab completion for deoplete
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
