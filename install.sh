@@ -6,16 +6,25 @@ GREEN='\e[1;32m'
 NC='\e[0m'
 
 
-echo -e "${GREEN}Updating package cache${NC}"
-sudo apt-get update
-echo -e "${GREEN}Updating dependencies${NC}"
-sudo apt-get install build-essential cmake vim-nox python3-dev mono-complete nodejs default-jdk npm
-echo -e "${GREEN}installing pip for autocomplete plugin${NC}"
-sudo apt-get install -y python3-pip
-echo -e "${RED}Uninstalling msgpack-python${NC}"
-pip3 uninstall msgpack-python
-echo -e "${GREEN}Installing msgpack${NC}"
-pip3 install -U msgpack
+os_type=`uname -s`
+if [ $os_type == "Darwin" ]; then
+	echo -e "${RED}Uninstalling msgpack-python${NC}"
+	pip3 uninstall msgpack-python
+	echo -e "${GREEN}Installing msgpack${NC}"
+	pip3 install -U msgpack
+	brew install node mono cmake
+else
+	echo -e "${GREEN}Updating package cache${NC}"
+	sudo apt-get update
+	echo -e "${GREEN}Updating dependencies${NC}"
+	sudo apt-get install build-essential cmake vim-nox python3-dev mono-complete nodejs default-jdk npm
+	echo -e "${GREEN}installing pip for autocomplete plugin${NC}"
+	sudo apt-get install -y python3-pip
+	echo -e "${RED}Uninstalling msgpack-python${NC}"
+	pip3 uninstall msgpack-python
+	echo -e "${GREEN}Installing msgpack${NC}"
+	pip3 install -U msgpack
+fi
 
 pip3 install --user pynvim
 
@@ -117,5 +126,13 @@ echo -e "${GREEN}Compiling YouCompleteMe Server${NC}"
 cd ~/.vim/bundle/YouCompleteMe
 python3 install.py --all --go-completer
 cd $ROOT
+
+has_vi_mode=`cat $HOME/.inputrc | grep vi-command`
+
+if [[ -z $has_vi_mode ]]; then
+	echo -e "${GREEN}Update inputrc with vim keybindings${NC}"
+	echo "set editing-mode vi" >> $HOME/.inputrc
+	echo "set keymap vi-command" >> $HOME/.inputrc
+fi
 
 echo -e "${RED}Finished${NC}"

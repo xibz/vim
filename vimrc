@@ -23,6 +23,7 @@ set smartindent
 set number
 set background=dark
 set pastetoggle=<F2> "Key to change in and out of paste mode
+set encoding=utf-8
 syntax enable
 
 " Command configs
