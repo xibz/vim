@@ -13,6 +13,8 @@ if [ $os_type == "Darwin" ]; then
 	echo -e "${GREEN}Installing msgpack${NC}"
 	pip3 install -U msgpack
 	brew install node mono cmake
+	# jump to definition for java
+	brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 else
 	echo -e "${GREEN}Updating package cache${NC}"
 	sudo apt-get update
@@ -50,25 +52,16 @@ echo -e "${GREEN}Installing tmux${NC}"
 sudo apt-get install tmux
 echo -e "${GREEN}Installing ctags${NC}"
 sudo apt-get install ctags
+echo -e "${GREEN}Installing vim-plug${NC}"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ################################
 # Plugins
 ################################
-echo -e "${GREEN}Copying nerd tree${NC}"
-git clone git@github.com:scrooloose/nerdtree.git nerdTree
-sudo cp -r ./nerdTree/* ~/.vim
-
-echo -e "${GREEN}Copying ctrlp${NC}"
-git clone git@github.com:kien/ctrlp.vim.git ctrlp
-sudo cp -r ./ctrlp/* ~/.vim
-
 echo -e "${GREEN}Copying pathogen${NC}"
-git clone git@github.com:tpope/vim-pathogen.git pathogen
+git clone https://github.com/tpope/vim-pathogen.git pathogen
 sudo cp -r ./pathogen/* ~/.vim
-
-echo -e "${GREEN}Copying tagbar${NC}"
-git clone git@github.com:majutsushi/tagbar.git tagbar
-sudo cp -r ./tagbar/* ~/.vim
 
 echo -e "${GREEN}Setting git diff and merge tool"
 git config --global diff.tool vimdiff
@@ -123,8 +116,8 @@ vim test.go
 
 # install YouCompleteMe
 echo -e "${GREEN}Compiling YouCompleteMe Server${NC}"
-cd ~/.vim/bundle/YouCompleteMe
-python3 install.py --all --go-completer
+cd ~/.vim/plugged/YouCompleteMe
+python3 install.py --all
 cd $ROOT
 
 has_vi_mode=`cat $HOME/.inputrc | grep vi-command`

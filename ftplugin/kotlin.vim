@@ -1,8 +1,7 @@
 call plug#begin()
 Plug 'Lokaltog/vim-easymotion'
-Plug 'artur-shaik/vim-javacomplete2'
+Plug 'udalov/kotlin-vim'
 Plug 'ycm-core/YouCompleteMe'
-Plug 'puremourning/vimspector'
 call plug#end()
 
 set expandtab
@@ -16,8 +15,6 @@ setlocal completeopt=preview,menuone
 " ctags bindings
 nmap F :YcmComplete GoTo<CR>
 map T <C-o>
-
-autocmd! BufWritePost <buffer> YcmCompleter OrganizeImports
 
 let g:vimspector_enable_mappings = 'HUMAN'
 packadd! vimspector

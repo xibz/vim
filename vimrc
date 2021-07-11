@@ -3,13 +3,16 @@
 """"""""""""""""""""""""""""""""""""""""""
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'roxma/nvim-yarp'
-Plugin 'roxma/vim-hug-neovim-rpc'
-call vundle#end()
+
+call plug#begin()
+Plug 'Lokaltog/vim-easymotion'
+Plug 'preservim/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'tpope/vim-commentary'
+Plug 'airblade/vim-gitgutter'
+call plug#end()
 
 filetype plugin on
 filetype plugin indent on
@@ -57,14 +60,18 @@ map T :tabnew<space>
 map Q :tabclose<CR>
 map ` :NERDTreeToggle<CR>
 
-" Panes navigation
-map + <C-W>k
-map " <C-W>j
-map { <C-W>h
-map } <C-W>l
+" ctags bindings
+map F <C-]>
+map T <C-t>
 
 map 0 ^
 nmap s <Plug>(easymotion-s)
+
+" autocomplete stuff
+" remap ctrl-x to automatically open autocomplete window and option
+inoremap <C-x> <C-X><C-O>
+" map ctrl-o to toggle between autocomplete options
+inoremap <C-o> <C-O>
 
 " git-gutter bindings
 map _ :GitGutterToggle<CR>
@@ -84,6 +91,12 @@ hi TabLineSel ctermfg=White ctermbg=DarkGray
 execute pathogen#infect()
 call pathogen#helptags()
 
+let g:ycm_filepath_blacklist = {
+      \ 'html': 1,
+      \ 'jsx': 1,
+      \ 'xml': 1,
+      \}
+
 let g:gitgutter_highlight_lines = 1
 let g:gitgutter_highlight_linenrs = 1
 
@@ -94,3 +107,9 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 " enable tab completion for deoplete
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+setlocal completefunc=youcompleteme#Complete
+setlocal completeopt=preview,menuone
+
+au! BufRead,BufNewFile *.pcl setfiletype pcl
+au! BufRead,BufNewFile *.gradle setfiletype gradle
