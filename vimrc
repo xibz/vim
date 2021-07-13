@@ -11,7 +11,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-commentary'
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 call plug#end()
 
 filetype plugin on
@@ -27,6 +27,9 @@ set number
 set background=dark
 set pastetoggle=<F2> "Key to change in and out of paste mode
 set encoding=utf-8
+
+" quick update for git diff
+set updatetime=100
 syntax enable
 
 " Command configs
@@ -73,9 +76,6 @@ inoremap <C-x> <C-X><C-O>
 " map ctrl-o to toggle between autocomplete options
 inoremap <C-o> <C-O>
 
-" git-gutter bindings
-map _ :GitGutterToggle<CR>
-
 " Column limit
 " Must go at the end due to highlight will be overwritten
 " if colorscheme is used
@@ -96,9 +96,6 @@ let g:ycm_filepath_blacklist = {
       \ 'jsx': 1,
       \ 'xml': 1,
       \}
-
-let g:gitgutter_highlight_lines = 1
-let g:gitgutter_highlight_linenrs = 1
 
 " makes ctrlp significantly faster by ignoring files in .git and files in
 " .gitignore
