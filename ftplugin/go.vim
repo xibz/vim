@@ -1,9 +1,8 @@
-call vundle#begin()
-Plugin 'fatih/vim-go'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'ycm-core/YouCompleteMe'
-call vundle#end()
+call plug#begin()
+Plug 'fatih/vim-go'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'ycm-core/YouCompleteMe'
+call plug#end()
 
 " Install syntastic
 execute pathogen#infect()

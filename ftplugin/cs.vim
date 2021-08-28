@@ -1,8 +1,7 @@
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'OmniSharp/omnisharp-vim'
-call vundle#end()
+call plug#begin()
+Plug 'Lokaltog/vim-easymotion'
+Plug 'OmniSharp/omnisharp-vim'
+call plug#end()
 
 set expandtab
 set tabstop=4

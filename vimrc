@@ -11,7 +11,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-commentary'
-Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+Plug 'mhinz/vim-signify'
 call plug#end()
 
 filetype plugin on
@@ -59,6 +59,11 @@ nmap = <C-d>
 nnoremap <CR> :noh<CR><CR>
 
 let g:ctrlp_map='\'
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("t")': ['<cr>'],
+    \ }
+
 map T :tabnew<space>
 map Q :tabclose<CR>
 map ` :NERDTreeToggle<CR>

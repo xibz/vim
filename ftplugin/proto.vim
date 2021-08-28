@@ -1,7 +1,6 @@
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'Lokaltog/vim-easymotion'
-call vundle#end()
+call plug#begin()
+Plug 'Lokaltog/vim-easymotion'
+call plug#end()
 
 set noexpandtab
 set softtabstop=4

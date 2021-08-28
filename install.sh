@@ -15,17 +15,20 @@ if [ $os_type == "Darwin" ]; then
 	brew install node mono cmake
 	# jump to definition for java
 	brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+	brew install ripgrep
 else
 	echo -e "${GREEN}Updating package cache${NC}"
 	sudo apt-get update
 	echo -e "${GREEN}Updating dependencies${NC}"
-	sudo apt-get install build-essential cmake vim-nox python3-dev mono-complete nodejs default-jdk npm
+	sudo apt-get install build-essential cmake vim-nox python3-dev mono-complete nodejs default-jdk npm ripgrep
 	echo -e "${GREEN}installing pip for autocomplete plugin${NC}"
 	sudo apt-get install -y python3-pip
 	echo -e "${RED}Uninstalling msgpack-python${NC}"
 	pip3 uninstall msgpack-python
 	echo -e "${GREEN}Installing msgpack${NC}"
 	pip3 install -U msgpack
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 pip3 install --user pynvim

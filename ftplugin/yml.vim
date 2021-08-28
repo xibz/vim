@@ -1,8 +1,3 @@
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'Lokaltog/vim-easymotion'
-call vundle#end()
-
 filetype plugin indent on
 " show existing tab with 4 spaces width
 set tabstop=4

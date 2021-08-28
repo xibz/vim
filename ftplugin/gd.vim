@@ -1,8 +1,7 @@
-call vundle#begin()     
-Plugin 'VundleVim/Vundle.vim'     
-Plugin 'Lokaltog/vim-easymotion'     
-Plugin 'calviken/vim-gdscript3'     
-call vundle#end()     
+call plug#begin()
+Plug 'Lokaltog/vim-easymotion'
+Plug 'calviken/vim-gdscript3'
+call plug#end()
      
 " Use actual tabs     
 set noexpandtab     
