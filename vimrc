@@ -12,6 +12,7 @@ Plug 'majutsushi/tagbar'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-commentary'
 Plug 'mhinz/vim-signify'
+Plug 'udalov/kotlin-vim'
 call plug#end()
 
 filetype plugin on
@@ -19,6 +20,7 @@ filetype plugin indent on
 filetype indent on
 """"""""""""""""""""""""""""""""""""""""""
 
+set nocompatible
 set nohidden
 set nowrap
 set autoindent
