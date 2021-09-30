@@ -6,18 +6,20 @@ Plug 'puremourning/vimspector'
 call plug#end()
 
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 " set tags=$HOME/ctags/java/tags
 
 setlocal completefunc=youcompleteme#Complete
 setlocal completeopt=preview,menuone
 
-" ctags bindings
 nmap F :YcmComplete GoTo<CR>
 map T <C-o>
+nmap gt :YcmCompleter FixIt<CR>
 
 autocmd! BufWritePost <buffer> YcmCompleter OrganizeImports
 
 let g:vimspector_enable_mappings = 'HUMAN'
 packadd! vimspector
+
+let $JAVA_TOOL_OPTIONS="-javaagent:/usr/local/bin/lombok.jar -Xbootclasspath/a:/usr/local/bin/lombok.jar"
