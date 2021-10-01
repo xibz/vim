@@ -59,8 +59,9 @@ echo -e "${GREEN}Installing vim-plug${NC}"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo -e "${GREEN}Installing lombok.jar${NC}"
-sudo wget https://projectlombok.org/downloads/lombok.jar /usr/local/bin/lombok.jar
-sudo chmod +x /usr/local/bin/lombok.jar
+mkdir $HOME/lombok
+sudo wget https://projectlombok.org/downloads/lombok.jar -P $HOME/lombok/
+sudo chmod +x $HOME/lombok.jar
 
 ################################
 # Plugins

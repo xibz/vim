@@ -22,4 +22,4 @@ autocmd! BufWritePost <buffer> YcmCompleter OrganizeImports
 let g:vimspector_enable_mappings = 'HUMAN'
 packadd! vimspector
 
-let $JAVA_TOOL_OPTIONS="-javaagent:/usr/local/bin/lombok.jar -Xbootclasspath/a:/usr/local/bin/lombok.jar"
+let $JAVA_TOOL_OPTIONS=expand("-javaagent:$HOME/lombok/lombok.jar -Xbootclasspath/a:$HOME/lombok/lombok.jar")
