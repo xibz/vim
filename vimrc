@@ -13,6 +13,9 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-commentary'
 Plug 'mhinz/vim-signify'
 Plug 'udalov/kotlin-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
 filetype plugin on
@@ -101,6 +104,7 @@ call pathogen#helptags()
 let g:ycm_filepath_blacklist = {
       \ 'html': 1,
       \ 'jsx': 1,
+      \ 'md': 1,
       \ 'xml': 1,
       \}
 
@@ -117,3 +121,11 @@ setlocal completeopt=preview,menuone
 
 au! BufRead,BufNewFile *.pcl setfiletype pcl
 au! BufRead,BufNewFile *.gradle setfiletype gradle
+filetype plugin indent on
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='simple'
+
+# whitespace plugin settings
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1

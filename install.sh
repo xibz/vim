@@ -1,3 +1,4 @@
+#!/bin/bash
 ROOT=`pwd`
 BLUE='\e[1;34m'
 CYAN='\e[1;36m'
@@ -31,12 +32,24 @@ else
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+# Oh My Zsh
+echo -e "${GREEN}Installing oh my zsh${NC}"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+echo -e "${GREEN}Copying zshrc${NC}"
+cp zshrc ~/.zshrc
+
+# Starship stuffery
+echo -e "${GREEN}Installing Starship${NC}"
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+mkdir -p ~/.config
+cp ./starship.toml ~/.config/
+cp ./starship-git-user.sh /usr/local/bin/
+cp ./starship-git.sh /usr/local/bin/
+
 pip3 install --user pynvim
 
 echo -e "${GREEN}Copying vimrc${NC}"
 sudo cp vimrc ~/.vimrc
-echo -e "${GREEN}Copying tmux.conf${NC}"
-sudo cp tmux.conf ~/.tmux.conf
 echo -e "${GREEN}Copying inputrc${NC}"
 sudo cp inputrc ~/.inputrc
 echo -e "${GREEN}Copying xinitrc${NC}"
@@ -69,6 +82,11 @@ sudo chmod +x $HOME/lombok.jar
 echo -e "${GREEN}Copying pathogen${NC}"
 git clone https://github.com/tpope/vim-pathogen.git pathogen
 sudo cp -r ./pathogen/* ~/.vim
+
+echo -e "${GREEN}installing tmux conf${NC}"
+git clone https://github.com/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf ~/.tmux.conf
+cp .tmux/.tmux.conf.local ~/.tmux.conf.local
 
 echo -e "${GREEN}Setting git diff and merge tool"
 git config --global diff.tool vimdiff
