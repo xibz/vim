@@ -28,9 +28,9 @@ else
 	pip3 uninstall msgpack-python
 	echo -e "${GREEN}Installing msgpack${NC}"
 	pip3 install -U msgpack
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Oh My Zsh
 echo -e "${GREEN}Installing oh my zsh${NC}"
