@@ -21,7 +21,7 @@ else
 	echo -e "${GREEN}Updating package cache${NC}"
 	sudo apt-get update
 	echo -e "${GREEN}Updating dependencies${NC}"
-	sudo apt-get install build-essential cmake vim-nox python3-dev mono-complete nodejs default-jdk npm ripgrep
+	sudo apt-get install build-essential cmake vim-nox python3-dev mono-complete nodejs default-jdk npm ripgrep zsh
 	echo -e "${GREEN}installing pip for autocomplete plugin${NC}"
 	sudo apt-get install -y python3-pip
 	echo -e "${RED}Uninstalling msgpack-python${NC}"
@@ -35,6 +35,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 echo -e "${GREEN}Installing vim-plug${NC}"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+echo -e "${GREEN}Installing zoxide${NC}"
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 # Oh My Zsh
 echo -e "${GREEN}Installing oh my zsh${NC}"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -157,5 +160,8 @@ if [[ -z $has_vi_mode ]]; then
 	echo "set editing-mode vi" >> $HOME/.inputrc
 	echo "set keymap vi-command" >> $HOME/.inputrc
 fi
+
+echo -e "${GREEN}Initializing zoxide${NC}"
+zoxide init --cmd cd zsh
 
 echo -e "${RED}Finished${NC}"
