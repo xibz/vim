@@ -16,7 +16,15 @@ Plug 'udalov/kotlin-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'
+
+" Color scheme
+Plug 'AhmedAbdulrahman/vim-aylin'
 call plug#end()
+
+colorscheme aylin
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 filetype plugin on
 filetype plugin indent on
