@@ -121,7 +121,6 @@ setlocal completeopt=preview,menuone
 
 au! BufRead,BufNewFile *.pcl setfiletype pcl
 au! BufRead,BufNewFile *.gradle setfiletype gradle
-filetype plugin indent on
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='simple'
@@ -129,3 +128,5 @@ let g:airline_theme='simple'
 " whitespace plugin settings
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
+
+set runtimepath+=~/.vim/after/ftplugin

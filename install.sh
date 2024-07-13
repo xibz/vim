@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 ROOT=`pwd`
 BLUE='\e[1;34m'
 CYAN='\e[1;36m'
@@ -13,7 +13,7 @@ if [ $os_type == "Darwin" ]; then
 	pip3 uninstall msgpack-python
 	echo -e "${GREEN}Installing msgpack${NC}"
 	pip3 install -U msgpack
-	brew install node mono cmake
+	brew install node mono cmake macvim shortcat
 	# jump to definition for java
 	brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 	brew install ripgrep
@@ -32,11 +32,16 @@ fi
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+echo -e "${GREEN}Installing vim-plug${NC}"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # Oh My Zsh
 echo -e "${GREEN}Installing oh my zsh${NC}"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 echo -e "${GREEN}Copying zshrc${NC}"
 cp zshrc ~/.zshrc
+echo -e "${GREEN}Installing k${NC}"
+git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
 
 # Starship stuffery
 echo -e "${GREEN}Installing Starship${NC}"
@@ -128,7 +133,7 @@ echo -e "${GREEN}Symlinking bundle folder${NC}"
 sudo ln -s `pwd` ~/.vim/bundle
 
 echo -e "${GREEN}Exporting variables to .bash_profile${NC}"
-echo "export PATH=$PATH:/$HOME/go/bin" >> $HOME/.bash_profile 
+echo "export PATH=$PATH:/$HOME/go/bin" >> $HOME/.bash_profile
 mkdir -p $HOME/go
 mkdir -p $HOME/go/bin
 go get -u github.com/golang/lint/golint

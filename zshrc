@@ -6,6 +6,24 @@ bindkey -v
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export TERM=xterm-kitty
+export PATH="$HOME/spinnaker-workspace/spinnaker-scripts/bin:$HOME/go/bin:$PATH"
+export SPINNAKER_WORKSPACE=$HOME/spinnaker-workspace/
+export WHISPER_KEY="$HOME/certs/whisper/key.pem"
+export WHISPER_CERT="$HOME/certs/whisper/cert.pem"
+
+# some shitty git hooks thing that deck uses
+export HUSKY=0
+
+# Spinnaker constants
+export CLOUDDRIVER_PORT=7002
+export ECHO_PORT=8089
+export FIAT_PORT=7003
+export FRONT50_PORT=8080
+export GATE_PORT=8084
+export IGOR_PORT=8088
+export KAYENTA_PORT=8090
+export ORCA_PORT=8083
+export ROSCO_PORT=8087
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -78,6 +96,7 @@ plugins=(
 	sudo
 	vi-mode
 	zsh-autosuggestions
+	k
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -111,10 +130,17 @@ source $ZSH/oh-my-zsh.sh
 bindkey '^ ' autosuggest-accept
 bindkey '^e' autosuggest-execute
 bindkey '^t' autosuggest-toggle
+eval "$(starship init zsh)"
+alias vessel-compat=vessel compat --cpus 4 --memory 12g
 alias -s log="tail -f"
+alias -s pid="kill.sh"
+alias rg="rg --color=always"
+alias less="less -R"
+alias cds="cd ~/spinnaker-workspace/spinnaker"
+alias top="glances"
+alias vim="/usr/local/bin/vim"
 
 export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-eval "$(starship init zsh)"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm use 16.14
