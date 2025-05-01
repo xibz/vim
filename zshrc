@@ -132,7 +132,6 @@ source $ZSH/oh-my-zsh.sh
 bindkey '^ ' autosuggest-accept
 bindkey '^e' autosuggest-execute
 bindkey '^t' autosuggest-toggle
-eval "$(starship init zsh)"
 alias vessel-compat=vessel compat --cpus 4 --memory 12g
 alias -s log="tail -f"
 alias -s pid="kill.sh"
