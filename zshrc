@@ -1,12 +1,13 @@
 set -o vi
 bindkey -v
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# If you come from bash you might have to change your $PATH.  # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export TERM=xterm-kitty
-export PATH="$HOME/spinnaker-workspace/spinnaker-scripts/bin:$HOME/go/bin:$PATH"
+export PATH="$(brew --prefix)/bin:$HOME/spinnaker-workspace/spinnaker-scripts/bin:$HOME/go/bin:$PATH"
 export SPINNAKER_WORKSPACE=$HOME/spinnaker-workspace/
 export WHISPER_KEY="$HOME/certs/whisper/key.pem"
 export WHISPER_CERT="$HOME/certs/whisper/cert.pem"
@@ -98,7 +99,6 @@ plugins=(
 	sudo
 	vi-mode
 	zsh-autosuggestions
-	k
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -140,14 +140,11 @@ alias rg="rg --color=always"
 alias less="less -R"
 alias cds="cd ~/spinnaker-workspace/spinnaker"
 alias top="glances"
-alias vim="/usr/local/bin/vim"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 nvm use 16.14
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"

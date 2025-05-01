@@ -8,7 +8,7 @@ NC='\e[0m'
 
 
 os_type=`uname -s`
-if [ $os_type == "Darwin" ]; then
+if [[ $os_type == "Darwin" ]]; then
 	echo -e "${RED}Uninstalling msgpack-python${NC}"
 	pip3 uninstall msgpack-python
 	echo -e "${GREEN}Installing msgpack${NC}"
@@ -17,6 +17,7 @@ if [ $os_type == "Darwin" ]; then
 	# jump to definition for java
 	brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 	brew install ripgrep
+	brew install zoxide
 else
 	echo -e "${GREEN}Updating package cache${NC}"
 	sudo apt-get update
@@ -28,6 +29,7 @@ else
 	pip3 uninstall msgpack-python
 	echo -e "${GREEN}Installing msgpack${NC}"
 	pip3 install -U msgpack
+	curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 fi
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -36,8 +38,6 @@ echo -e "${GREEN}Installing vim-plug${NC}"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-echo -e "${GREEN}Installing zoxide${NC}"
-curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 # Oh My Zsh
 echo -e "${GREEN}Installing oh my zsh${NC}"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -90,6 +90,8 @@ sudo chmod +x $HOME/lombok.jar
 echo -e "${GREEN}Copying pathogen${NC}"
 git clone https://github.com/tpope/vim-pathogen.git pathogen
 sudo cp -r ./pathogen/* ~/.vim
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 echo -e "${GREEN}installing tmux conf${NC}"
 git clone https://github.com/gpakosz/.tmux.git
