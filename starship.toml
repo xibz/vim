@@ -1,0 +1,86 @@
+add_newline = false
+format="$cmd_duration$username$hostname$directory${custom.git_user}${git_branch}${git_commit}${custom.git_symbol}$character"
+
+[character]
+# Prompt format
+vicmd_symbol = "[V](bold green) "
+# format = " \\$ "
+format = ' $symbol '
+success_symbol = '\$'
+error_symbol = '\$'
+
+[username]
+style_user = "green bold"
+style_root = "white"
+format = "[$user]($style)"
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = true
+# format =  "[@$hostname](bold fg:#CC59B0)"
+format =  "[@$hostname](bold fg:199)"
+disabled = false
+
+[directory]
+read_only = "🔒"
+read_only_style= "bold white"
+style = "fg:#A7F3E4"
+format = " [$path](blue bold)"
+truncation_length = 100
+truncate_to_repo = false
+
+[docker_context]
+format = "via [🐋 $context](blue bold)"
+
+[cmd_duration]
+disabled = true
+format = "DURATION: $duration\n"
+show_milliseconds = true
+min_time = 0
+
+[aws]
+format = "on [$symbol$profile]($style) "
+style = "bold cyan"
+symbol = "🅰 "
+
+[aws.region_aliases]
+us-east-1 = "est-1"
+
+# Git
+[git_branch]
+style = "bold white"
+format = '[\($branch]($style)'  # note the opening ( parenthesis
+only_attached = true
+
+[git_commit]
+style = "bold white"
+format = '([\($hash$tag]($style))'    # note the opening ( parenthesis
+only_detached = true
+tag_disabled = false
+tag_symbol = ' '
+
+# Language Environments
+[package]
+style = "bold fg:#5E5E5E"
+
+[python]
+style = "bold fg:#5E5E5E"
+symbol = "[](bold yellow) "
+
+[nodejs]
+style = "bold fg:#5E5E5E"
+symbol = "[⬢](bold green) "
+
+[custom.git_symbol]
+command = "starship-git.sh"
+when = "git rev-parse --git-dir >/dev/null 2>/dev/null" # only run if we're in a git repo
+style = "bold white"
+format = '[$output\)]($style)'   # note the closing ) parenthesis
+
+[custom.git_user]
+command = "ZDOTDIR=~/.config/starship-zsh starship-git-user.sh" # set ZDOTDIR, which makes ZSH load the .zshenv file inside, which has the configs
+when = "git rev-parse --git-dir >/dev/null 2>/dev/null" # only run if we're in a git repo
+style = ''
+format = ' [$output]($style)' # the preceding space is added by the script itself
+disabled = false
